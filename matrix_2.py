@@ -44,6 +44,7 @@ def agregar_elem(fila, columna):
     return (matriz)
 
 matrix = agregar_elem(fila, columna)
+print(matrix)
 
 def det_1(matrix ,fila, columna):
     filas, columnas = orden_m(fila, columna)
@@ -72,14 +73,14 @@ def determinante_nxn(matrix):
         return det_1(matrix, fila, columna)
     elif len(matrix) == 2:
         simple_determinant = matrix[0][0]*matrix[1][1] - matrix[1][0]*matrix[0][1]
-        return simple_determinant
+        return (f'determinante:',simple_determinant)
     else:
         res = 0
         num_columns = num_rows
         for j in range(num_columns):
             cofactor = (-1)**(0+j) * matrix[0][j] * determinante_nxn(reduccion_matrix(matrix,0,j))
             res += cofactor
-    return res
+    return (f" determiannte: ", res)
 
 
 
